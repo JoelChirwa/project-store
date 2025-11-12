@@ -18,7 +18,7 @@ export default function EditPage() {
     async function load() {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+  const res = await fetch(`/api/products/${id}`);
         if (!res.ok) throw new Error(`Server responded ${res.status}`);
         const data = await res.json();
         if (!mounted) return;
@@ -48,7 +48,7 @@ export default function EditPage() {
 
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${id}`, {
+  const res = await fetch(`/api/products/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name.trim(), price: parsedPrice, image: image.trim(), description: description.trim() }),

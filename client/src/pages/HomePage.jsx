@@ -14,7 +14,7 @@ export default function HomePage() {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch('http://localhost:5000/api/products');
+  const res = await fetch('/api/products');
         if (!res.ok) throw new Error(`Server responded ${res.status}`);
         const data = await res.json();
         if (mounted) setProducts(data.data || []);
@@ -67,7 +67,7 @@ export default function HomePage() {
     closeConfirm();
 
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${product._id}`, {
+  const res = await fetch(`/api/products/${product._id}`, {
         method: 'DELETE',
       });
       const data = await res.json();

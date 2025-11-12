@@ -32,7 +32,7 @@ export default function CreatePage() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5000/api/products', {
+  const res = await fetch('/api/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name.trim(), price: parsedPrice, image: image.trim(), description: description.trim() }),
