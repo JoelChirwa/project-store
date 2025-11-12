@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-gray-100 text-gray-900;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Product card image: maintain a consistent aspect ratio and make images cover */
+.product-image {
+  position: relative;
+  width: 100%;
+  /* 4:3 aspect ratio */
+  padding-top: 75%;
+  overflow: hidden;
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}
+
+.product-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.03);
+}
+
+/* Small visual polish for cards */
+.product-card {
+  transition: box-shadow .2s ease, transform .15s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(2,6,23,0.08);
+}
+
+/* Optional: clamp two lines of description when the plugin isn't available */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Confirmation modal backdrop and panel */
+.modal-backdrop {
+  background: rgba(2,6,23,0.6);
+}
+.modal {
+  border-radius: .5rem;
+}
+
+/* Toast */
+.toast {
+  min-width: 220px;
+  max-width: 420px;
+  padding: .6rem .9rem;
+  border-radius: .5rem;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+  font-weight: 500;
+}
